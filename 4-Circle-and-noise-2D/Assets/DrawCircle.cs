@@ -9,7 +9,7 @@ public class DrawCircle : MonoBehaviour
     private int Size;
     private LineRenderer lr;
     private float Theta = 0f;
-    Color LineColor = new Color(0.08f, 0.02f, 0.27f, 0.3f);
+    Color LineColor = new Color(0.08f, 0.02f, 0.27f, 0.8f);
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +27,9 @@ public class DrawCircle : MonoBehaviour
         for(int i = 0; i < Size; i++)
         {
             Theta += (2.0f * Mathf.PI * ThetaScale);
-            float x = radius * Mathf.Cos(Theta);
-            float y = radius * Mathf.Sin(Theta);
+            float rand = Random.Range(-0.5f, 0.5f);
+            float x = (radius + rand) * Mathf.Cos(Theta);
+            float y = (radius + rand) * Mathf.Sin(Theta);
             lr.SetPosition(i, new Vector3(x, y, 0));
         }
 
